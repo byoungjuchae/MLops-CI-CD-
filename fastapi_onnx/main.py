@@ -17,7 +17,7 @@ input_transform = T.Compose([T.Resize(224),
 
 
 model = models.resnet18(pretrained=True).cuda()
-dummy_input = torch.randn(10,3,224,224,device='cuda')
+dummy_input = torch.randn(1,3,224,224,device='cuda')
 torch.onnx.export(model,dummy_input,'resnet.onnx',verbose=True,input_names=["input"],output_names=["output"])
 app = FastAPI()
 
@@ -27,17 +27,17 @@ app = FastAPI()
 def predict(file : bytes = File(...)):
     
     image=  Image.open(io.BytesIO(file)).convert('RGB')
-    image = np.array(image)
-    import pdb
-    pdb.set_trace()
-    #image = input_transform(image).unsqueeze(0)
+    # image = np.array(image)
+
+    image = input_transform(image).unsqueeze(0)
     # image = input_transform(image)
     model = ort.InferenceSession('resnet.onnx',providers=providers)
 
-    output = model.run(None,{"input":image.astype(np.float32)})
+    output = model.run(None,{"input":image.numpy()})
+
         
-    output = torch.argmax(output,dim=1).item()
+    output = np.argmax(output[0],axis=1).item()
     
-    return  
+    return  output
 
 
