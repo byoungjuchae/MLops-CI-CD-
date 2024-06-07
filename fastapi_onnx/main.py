@@ -12,7 +12,8 @@ import numpy as np
 providers = ["CUDAExecutionProvider"]
 
 input_transform = T.Compose([T.Resize(224),
-                             T.ToTensor()])
+                             T.ToTensor(),
+                             T.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])])
 
 
 
@@ -27,10 +28,8 @@ app = FastAPI()
 def predict(file : bytes = File(...)):
     
     image=  Image.open(io.BytesIO(file)).convert('RGB')
-    # image = np.array(image)
-
+   
     image = input_transform(image).unsqueeze(0)
-    # image = input_transform(image)
     model = ort.InferenceSession('resnet.onnx',providers=providers)
 
     output = model.run(None,{"input":image.numpy()})
