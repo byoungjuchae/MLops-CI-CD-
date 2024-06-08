@@ -16,11 +16,13 @@ pipeline {
                 }
             }
         
-        stage('Push Docker Image') {
-            steps {
-                sh 'docker run -d fast'
-                }
-            }
+        // stage('Push Docker Image') {
+        //     steps {
+        //         script{
+        //             sh 'docker run -d fast'
+                
+        //         }
+        //     }
     }
 }
 
