@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                dir('/fastapi_onnx_docker_classification/app/'){
+                sh 'cd fastapi_onnx_docker_classification/app'
                 sh 'docker build -t fast .'
                 }
             }
