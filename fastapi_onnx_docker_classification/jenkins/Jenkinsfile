@@ -7,27 +7,19 @@ pipeline {
                 git 'https://github.com/byoungjuchae/pytorch-to-onnx.git'
             }
         }
-
         stage('Build Docker Image') {
             steps {
                 sh 'cd fastapi_onnx_docker_classification/app'
                 sh 'docker build -t fast .'
                 }
             }
-        }
-
+        
         stage('Push Docker Image') {
             steps {
                 sh 'docker run -d fast'
                 }
             }
-        }
+    }
+}
 
         
-
-    post {
-        always {
-            echo 'Pipeline finished'
-        }
-    }
-
