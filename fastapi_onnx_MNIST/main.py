@@ -2,7 +2,6 @@ import torch
 import torch.nn as nn
 import torchvision
 import torchvision.transforms as T
-from fastapi import FastAPI
 import onnx
 from torch.utils.data import DataLoader
 import torch.optim as optim
@@ -20,7 +19,7 @@ test_dataset =  torchvision.datasets.MNIST(root='./fastapi_onnx_MNIST',
 train_loader = DataLoader(train_dataset,batch_size=32,shuffle=True)
 device = torch.device('cuda:0')
 learning_rate = 0.0001
-epochs = 30
+epochs = 15
 class CNN(nn.Module):
     def __init__(self):
         super(CNN, self).__init__()
@@ -55,6 +54,8 @@ model.train()
 for epoch in range(epochs):
     
     for data,target in train_loader:
+        import pdb
+        pdb.set_trace()
         data = data.to(device)
         target = target.to(device)
         optimizer.zero_grad()
@@ -66,4 +67,4 @@ for epoch in range(epochs):
         print("Train Step : {}\tLoss : {:3f}".format(epoch, loss.item()))
     
         
-torch.onnx.export(model,data,'mnist.onnx',export_params=True,verbose=True,input_names=["input"],output_names=["output"])
+torch.onnx.export(model,data[0].unsqueeze(0),'mnist.onnx',export_params=True,verbose=True,input_names=["input"],output_names=["output"])
