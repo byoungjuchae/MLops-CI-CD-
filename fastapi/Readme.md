@@ -21,7 +21,7 @@ Go to
 ip address/docs 
 '''
 
-./docs/example.png
+<img src ='./docs/example.png'>
 If you want to use docker 
 
 ```bash
