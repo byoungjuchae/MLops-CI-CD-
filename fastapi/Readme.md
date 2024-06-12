@@ -26,11 +26,5 @@ If you want to use docker
 
 ```bash
 docker build -t practice .
-<<<<<<< HEAD
 docker run -d -p 8000:8000 practice
 ```
-=======
-```
-
-docker exec
->>>>>>> 7b11f31f05950efff6d394be2647ef273ee7023e

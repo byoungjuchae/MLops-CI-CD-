@@ -6,18 +6,23 @@ It is difference between fastapi folder and this folder.
 This folder involves the exporting the model as a onnx tool.
  
 Install environment
-'''bash
+
+```bash
 pip install -r requirements.txt
-'''
+```
+
 Start fastAPI and evaluate model 
-'''bash
+
+```bash
 uvicorn main:app --reload 
-'''
-Go to 
-'''
+```
+
+Go to
+
+```
 ip address/docs 
-'''
-./docs/example.png
+```
+
 If you want to use docker 
 
 ```bash
