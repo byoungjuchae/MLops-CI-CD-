@@ -15,8 +15,11 @@ What involves in the each Folder?
 To do
 
 -[ ]fastapi_onnx_docker_jenkins folder converts the model into the MNIST pretrained model.
+
 -[ ] fastapi_onnx_regression model such as super resolution.
+
 -[ ] Using diffusion model 
+
 -[ ] Using TensoRT
 
 Until 2024/06/21
