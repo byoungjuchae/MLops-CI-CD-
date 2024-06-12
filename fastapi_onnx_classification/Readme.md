@@ -1,8 +1,10 @@
-This folder is to practice the fastapi tutorial.
+This folder is to practice the fastapi tutorial and onnx export.
 
 It just use simple pretrained resnet model and make API to use fastapi.
 
-
+It is difference between fastapi folder and this folder. 
+This folder involves the exporting the model as a onnx tool.
+ 
 Install environment
 '''bash
 pip install -r requirements.txt
