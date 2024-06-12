@@ -1,9 +1,10 @@
 FROM amd64/python:3.9-slim
 
-WORKDIR /usr
+WORKDIR /work
 
-COPY . /usr
+COPY . /work
 
-RUN pip install -r requirements.txt
+RUN pip install fastapi[all] \
+    && uvicorn
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--reload"]

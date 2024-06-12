@@ -54,8 +54,7 @@ model.train()
 for epoch in range(epochs):
     
     for data,target in train_loader:
-        import pdb
-        pdb.set_trace()
+
         data = data.to(device)
         target = target.to(device)
         optimizer.zero_grad()
