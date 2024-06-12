@@ -4,21 +4,28 @@ It just use simple pretrained resnet model and make API to use fastapi.
 
 
 Install environment
-'''bash
+
+```bash
 pip install -r requirements.txt
-'''
+```
+
 Start fastAPI and evaluate model 
-'''bash
+
+```bash
 uvicorn main:app --reload 
-'''
+```
+
 Go to 
+
 '''
 ip address/docs 
 '''
+
 ./docs/example.png
 If you want to use docker 
 
-'''bash
+```bash
 docker build -t practice .
-'''
+```
+
 docker exec
