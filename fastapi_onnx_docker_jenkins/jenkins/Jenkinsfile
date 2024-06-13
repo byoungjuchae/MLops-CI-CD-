@@ -3,7 +3,7 @@ pipeline {
     agent any
     environment{
     CONTENT ='fast' 
-    REPOSITORY = 'wpdhkd1642/fast'
+    REPOSITORY = "wpdhkd1642/fast"
     }
  
     stages {
@@ -22,7 +22,7 @@ pipeline {
         stage('Push'){
             steps{
                 script{
-                    sh 'docker push $REPOSITORY:latest'
+                    sh 'docker push $REPOSITORY:0.1v'
                 }
             }
         }
