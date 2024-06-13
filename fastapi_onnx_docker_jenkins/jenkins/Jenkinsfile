@@ -3,7 +3,7 @@ pipeline {
     agent any
     environment{
     CONTENT ='fast' 
-    REPOSITORY = "fast"
+    REPOSITORY = "wpdhkd1642/fast"
     DOCKERHUB_CREDENTIALS = credentials('fast_dockerhub')
     }
  
