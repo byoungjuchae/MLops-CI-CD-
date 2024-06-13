@@ -13,7 +13,7 @@ pipeline {
                 dir('/fastapi_onnx_docker_jenkins/app'){
 
                     script{
-                        sh 'docker build -t ${CONTENT}:latest$ -f Dockerfile .'
+                        sh 'docker build -t ${CONTENT}$ -f Dockerfile .'
               
                         }
                 }
