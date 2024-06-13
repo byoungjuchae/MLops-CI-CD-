@@ -1,7 +1,9 @@
 
 pipeline {
     agent any
+    environment{
     CONTENT ='fast'
+    }
     stages {
         stage('Checkout') {
             steps {
