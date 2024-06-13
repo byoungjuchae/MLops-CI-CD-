@@ -12,8 +12,8 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                dir('/fastapi_onnx_docker_jenkins/app'){
-                   sh 'docker build -t fast -f .Dockerfile .'
+             {
+                   sh 'docker build -t fast -f /fastapi_onnx_docker_jenkins/app/Dockerfile .'
                 }
             }
         
