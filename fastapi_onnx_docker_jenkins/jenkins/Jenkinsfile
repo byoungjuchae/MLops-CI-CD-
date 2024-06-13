@@ -15,7 +15,7 @@ pipeline {
                 dir('/fastapi_onnx_docker_jenkins/app'){
 
                     script{
-                        sh 'docker build -t ${CONTENT}:0.1v  -f dockerfile .'
+                        sh 'docker build -t ${CONTENT}:0.1v /Dockerfile .'
               
                         }
                 }
