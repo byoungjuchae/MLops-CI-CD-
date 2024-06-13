@@ -4,6 +4,9 @@ pipeline {
     environment{
     CONTENT ='fast'
     }
+    tools{
+        docker 'docker'
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -12,8 +15,8 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                script{
-                   sh 'docker build -t fast -f .fastapi_onnx_docker_jenkins/app/Dockerfile .'
+                dir('fastapi_onnx_docker_jenkins/app/'){
+                   sh 'docker build -t fast -f Dockerfile .'
                 }
             }
         
