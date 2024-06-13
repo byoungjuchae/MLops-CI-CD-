@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'cd fastapi_onnx_docker_jenkins/app'
+                sh 'cd ./fastapi_onnx_docker_jenkins/app'
                 script{
                     sh 'docker build -t fast .'
                     }
