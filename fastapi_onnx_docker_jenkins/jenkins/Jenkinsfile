@@ -4,6 +4,7 @@ pipeline {
     environment{
     CONTENT ='fast' 
     REPOSITORY = "wpdhkd1642/fast"
+    DOCKERHUB_CREDENTIALS = credentials('fast_dockerhub')
     }
  
     stages {
