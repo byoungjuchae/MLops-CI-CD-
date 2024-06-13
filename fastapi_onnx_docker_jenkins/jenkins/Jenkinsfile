@@ -16,7 +16,7 @@ pipeline {
         stage('Build Docker Image') {
             steps{
                 dir('fastapi_onnx_docker_jenkins/app/'){
-                   sh 'docker build . -t fast '
+                   sh 'docker build . -t wpdhkd1642/fast '
                 }
             }
         }
