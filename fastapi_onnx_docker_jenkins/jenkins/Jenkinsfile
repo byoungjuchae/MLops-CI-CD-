@@ -11,9 +11,9 @@ pipeline {
             steps {
                 dir('./fastapi_onnx_docker_jenkins/app'){
         
-                script{
-                    sh 'docker build -t fast .'
-                    }
+                    script{
+                        sh 'docker build -t fast .'
+                        }
                 }
             }
         
