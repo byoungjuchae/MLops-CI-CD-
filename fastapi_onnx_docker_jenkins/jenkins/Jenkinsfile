@@ -13,18 +13,10 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 dir('/fastapi_onnx_docker_jenkins/app'){
-                    
-                    app = docker.build("fast/jen:0.1v")
+                   sh 'docker build . -t fast'
                 }
             }
         
-        // stage('Push Docker Image') {
-        //     steps {
-        //         script{
-        //             sh 'docker run -d fast'
-                
-        //         }
-        //     }
-    }
+        }
     }
 }
