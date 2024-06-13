@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                dir('/fastapi_onnx_docker_jenkins/app'){
+                dir('/fastapi_onnx_docker_jenkins/app/'){
         
                     script{
                         sh 'docker build -t fast .'
