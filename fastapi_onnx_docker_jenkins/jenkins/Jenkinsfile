@@ -7,17 +7,23 @@ pipeline {
  
     stages {
         stage('Checkout') {
-            steps {
+            steps{
                 git 'https://github.com/byoungjuchae/pytorch-to-onnx.git'
             }
         }
         stage('Build Docker Image') {
-            steps {
+            steps{
                 dir('fastapi_onnx_docker_jenkins/app/'){
                    sh 'docker build . -t fast '
                 }
             }
-        
+        }
+        stage('Push'){
+            steps{
+                script{
+                    sh 'docker image push fast:0.1v'
+                }
+            }
         }
     }
 }
