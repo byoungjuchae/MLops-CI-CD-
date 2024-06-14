@@ -1,7 +1,9 @@
 pipeline{
     agent any
+    environment{
     REPOSITORY ='wpdhkd1642/super'
     DOCKERHUB_CREDENTIALS = credentials('fast_dockerhub')
+    }
     stages{
 
         stage("Checkout"){
