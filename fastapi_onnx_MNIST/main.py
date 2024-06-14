@@ -7,6 +7,7 @@ from torch.utils.data import DataLoader
 import torch.optim as optim
 import torch.nn.functional as F
 
+
 train_dataset = torchvision.datasets.MNIST(root='./fastapi_onnx_MNIST',
                       train=True,
                       download=True,

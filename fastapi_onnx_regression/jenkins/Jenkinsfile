@@ -1,0 +1,26 @@
+pipeline{
+    agent any
+    REPOSITORY ='wpdhkd1642/super'
+    DOCKERHUB_CREDENTIALS = credentials('fast_dockerhub')
+    stages{
+
+        stage("Checkout"){
+            script{
+                git 'https://github.com/byoungjuchae/pytorch-to-onnx.git'
+            }
+        }
+        stage("Build"){
+                dir('fastapi_onnx_docker_jenkins/app/'){
+
+                   sh 'docker build . -t $REPOSITORY '
+
+                }
+        }
+        stage("Push"){
+            script{
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                sh 'docker push $REPOSITORY'
+            }
+        }
+    }
+}
